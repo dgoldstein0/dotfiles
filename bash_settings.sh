@@ -5,9 +5,14 @@
 export EDITOR=vim
 
 # hg prompt code
-#hg_prompt() {
-#    hg prompt " ({branch}{status})" 2> /dev/null
-#}
+hg_prompt() {
+    # some protection to keep up from spamming the console
+    # with hg help when there's an error
+    OUTPUT=$(hg prompt "({branch}{status})" 2> /dev/null)
+    if [[ $? -eq 0 ]]; then
+        echo $OUTPUT
+    fi
+}
 
 # git prompt pieces
 COLOR_RED="\033[0;31m"
@@ -43,15 +48,19 @@ git_branch() {
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    echo " ($branch)"
+    echo "($branch)"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    echo " ($commit)"
+    echo "($commit)"
   fi
 }
 
+git_prompt() {
+    echo "$(git_color)$(git_branch)$(color_reset)"
+}
+
 # override the terminal prompt with hg and git status pieces
-export PS1='\h:\w\[$(git_color)\]$(git_branch)\[$(color_reset)\]$ '
+export PS1='\h:\w $(hg_prompt)$(git_prompt)$ '
 
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
