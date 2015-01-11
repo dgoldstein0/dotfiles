@@ -1,6 +1,6 @@
 This repo is for my personal settings files, which I want to sync & version control.  Suggestions are welcome, but don't expect me to incorporate anything that isn't useful to me.
 
-== Installation
+## Installation
 
 Trying to set up as much as possible with `make`, but we'll see how that goes.
 
