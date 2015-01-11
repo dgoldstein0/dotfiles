@@ -1,0 +1,14 @@
+# ignoring case for tab completion of filenames
+set completion-ignore-case on
+
+# These commands are useful for Putty -> bash character handling
+# when Putty is set to standard home/end, ESC[n~ for function keys,
+# and Ctrl-? (127) for backspace.  Otherwise YMMV
+"\e[1~": beginning-of-line     # Home key
+"\e[4~": end-of-line           # End key
+"\e[5~": beginning-of-history  # PageUp key
+"\e[6~": end-of-history        # PageDown key
+"\e[3~": delete-char           # Delete key
+"\e[2~": quoted-insert         # Insert key
+"\eOD": backward-word          # Ctrl + Left Arrow key
+"\eOC": forward-word           # Ctrl + Right Arrow key
