@@ -56,7 +56,15 @@ git_branch() {
 }
 
 git_prompt() {
-    echo "$(git_color)$(git_branch)$(color_reset)"
+    # the color characters are surrounded in \001 and \002 to tell
+    # bash that these characters are non-printable, so should be excluded
+    # for the purposes of line-wrapping calculations.  Usually we'd use \[
+    # and \], but, echo (and echo -e) don't understand these.  the -e is
+    # because we want echo to parse \001 and \002 as control characters.
+    #
+    # source:
+    # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
+    echo -e "\001$(git_color)\002$(git_branch)\001$(color_reset)\002"
 }
 
 # override the terminal prompt with hg and git status pieces
