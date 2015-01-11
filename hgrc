@@ -1,0 +1,3 @@
+[extensions]
+rebase =
+hg-prompt = ~/hg-prompt/prompt.py
