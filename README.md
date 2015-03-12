@@ -8,5 +8,6 @@ First check out this repo at ~/settings_files.  Relocation not supported at this
 
 - vimrc: `make ~/.vimrc`.  just generates a symlink... might not do the right thing on all platforms
 - bash: you'll have to add `source ~/settings_files/bash_settings` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
+- you might want to `source ~/.bash_alias` in your .bashrc.  The vimrc here will use ~/.bash_alias for local aliases
 - vim coffescript: `make install_vimcoffee` should do it.  It just creates ~/.vim if it doesn't exist, and then unzips the zip file into it.
 - inputrc: `make ~/.inputrc`

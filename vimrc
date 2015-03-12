@@ -30,3 +30,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\|\%100v.\+\)/
 
 " when editing a file, jump to last cursor position
 au BufReadPost * normal g'"
+
+" use bash aliases when running shell commands from vim
+let $BASH_ENV = "~/.bash_aliases"
