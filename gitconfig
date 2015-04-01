@@ -13,6 +13,7 @@
     branches = branch
     # get the name of the current branch.  Useful for other aliases.
     branch-name = "!git rev-parse --abbrev-ref HEAD"
+    bdiff = diff master...HEAD
     # update master & rebase current branch onto it
     remaster = "\
 !doremaster() {\
