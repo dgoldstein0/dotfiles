@@ -13,8 +13,8 @@ install_coffeevim: ~/.vim
 
 # only run this once
 install_gitconfig:
-	echo "[include]\n\tpath = settings_files/gitconfig" >> ~/.gitconfig
+	echo -e "[include]\n\tpath = settings_files/gitconfig" >> ~/.gitconfig
 
 # only run this once
 install_hgrc:
-	echo "\n%include settings_files/hgrc\n" >> ~/.hgrc
+	echo -e "\n%include settings_files/hgrc\n" >> ~/.hgrc
