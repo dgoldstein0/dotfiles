@@ -3,11 +3,13 @@ set mouse=a
 filetype on
 syntax on
 
+" case insensitivity for path completion
+set wildignorecase
+
 " shiftwidth deals with < and >.  tabstop deals with tab size.
 " You probably want these equal.
 set tabstop=4 shiftwidth=4
 set expandtab "spaces, not tabs
-
 
 
 """ Filetype specific settings follow.
