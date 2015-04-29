@@ -68,7 +68,13 @@ git_prompt() {
 }
 
 # override the terminal prompt with hg and git status pieces
-export PS1='\h:\w $(hg_prompt)$(git_prompt)$ '
+# start with \r to reset to the beginning of the line, in case some input has
+# been typed before the prompt shows - as it throws off line wrapping if allowed
+# to linger, and will always be reprinted after the prompt displays anyway.
+# \[ and \] mark \r as non-printable so that the terminal doesn't include it in
+# the count for line wrapping (or assume we will do our own wrapping).
+# \h is the host and \w is the current directory.
+export PS1='\[\r\]\h:\w $(hg_prompt)$(git_prompt)$ '
 
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
