@@ -4,6 +4,16 @@
 # default editor: vim
 export EDITOR=vim
 
+# source control prompt
+source_prompt() {
+    git rev-parse >& /dev/null;
+    if [[ $? ]]; then
+        echo $(git_prompt);
+    else
+        echo $(hg_prompt);
+    fi
+}
+
 # hg prompt code
 hg_prompt() {
     # some protection to keep up from spamming the console
@@ -74,7 +84,7 @@ git_prompt() {
 # \[ and \] mark \r as non-printable so that the terminal doesn't include it in
 # the count for line wrapping (or assume we will do our own wrapping).
 # \h is the host and \w is the current directory.
-export PS1='\[\r\]\h:\w $(hg_prompt)$(git_prompt)$ '
+export PS1='\[\r\]\h:\w $(source_prompt) '
 
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
