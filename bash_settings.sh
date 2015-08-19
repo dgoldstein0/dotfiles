@@ -84,7 +84,7 @@ git_prompt() {
 # \[ and \] mark \r as non-printable so that the terminal doesn't include it in
 # the count for line wrapping (or assume we will do our own wrapping).
 # \h is the host and \w is the current directory.
-export PS1='\[\r\]\h:\w $(source_prompt) '
+export PS1='\[\r\]\h:\w $(source_prompt)$ '
 
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
