@@ -19,7 +19,7 @@ set expandtab "spaces, not tabs
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 noexpandtab
 
 " Coffeescript & scss settings
-autocmd Filetype coffee,scss setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype coffee,scss,javascript,typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 """ END filetype specific settings
 
@@ -32,6 +32,9 @@ autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\|\%100v.\+\)/
 
 " when editing a file, jump to last cursor position
 au BufReadPost * normal g'"
+
+" auto set file types (most do this by default)
+au BufRead,BufNewFile *.ts set filetype=typescript
 
 " use bash aliases when running shell commands from vim
 let $BASH_ENV = "~/.bash_aliases"
