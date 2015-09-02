@@ -7,7 +7,7 @@ export EDITOR=vim
 # source control prompt
 source_prompt() {
     git rev-parse >& /dev/null;
-    if [[ $? ]]; then
+    if [[ $? = 0 ]]; then
         echo $(git_prompt);
     else
         echo $(hg_prompt);
