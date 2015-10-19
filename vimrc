@@ -3,8 +3,11 @@ filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
 filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
 
-" case insensitivity for path completion
-set wildignorecase
+" case insensitivity for path completion.
+" Set if exists (it doesn't for windows) avoids error on vim start.
+if exists("&wildignorecase")
+    set wildignorecase
+endif
 
 " shiftwidth deals with < and >.  tabstop deals with visual tab size.  softtabstop is
 " for tab size while editing (e.g. backspacing). You probably want these all equal.
@@ -19,6 +22,9 @@ set lazyredraw  " supposedly speeds up things like macros
 set showmatch   " highlight matching [{()}].  This seems to be default anyway.
 set scrolloff=1 " always show 1 line above/below the current one
 set laststatus=2    " make windows always show status line (even if there's only 1 open buffer)
+
+" make maximization work on Windows
+au GUIEnter * simalt ~x
 
 " search settings
 set incsearch   " search as characters are entered
