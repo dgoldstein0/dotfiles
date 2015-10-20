@@ -23,7 +23,7 @@ set showmatch   " highlight matching [{()}].  This seems to be default anyway.
 set scrolloff=1 " always show 1 line above/below the current one
 set laststatus=2    " make windows always show status line (even if there's only 1 open buffer)
 
-" make maximization work on Windows
+" make maximization work on Windows (unsure this does anything)
 au GUIEnter * simalt ~x
 
 " search settings
