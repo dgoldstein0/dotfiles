@@ -16,6 +16,7 @@ First check out this repo at ~/settings_files.  Relocation not supported at this
 
 I usually use msysgit which comes with a bash shell, and a bunch of basic utilities.  It however does not include `make` by default. See http://stackoverflow.com/questions/3219926/using-make-with-msysgit for a fix.
 
+- ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile
+
 Other errata:
 - the vimrc is expected at ~/_vimrc instead of ~/.vimrc
-- echo (from msysgit) doesn't automatically translate escapes \n, \t, etc. to the proper characters - the "-e" option seems to be needed.  I think -e might be the default on linux.
