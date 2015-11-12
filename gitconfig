@@ -9,7 +9,7 @@
 [format]
     # show the commit date instead of the author date.  This is the date of the rebase / amend
     # instead of the first time it was commited.
-    pretty = format:"%C(auto,yellow)commit %H%C(auto,reset)\nAuthor: %an <%ae>\nDate:   %cd\n\n%w(0,4,4)%B"
+    pretty = format:"%C(auto,yellow)commit %C(auto)%H%d\nAuthor: %an <%ae>\nDate:   %cd\n\n%w(0,4,4)%B"
 [log]
     # always use local timezone
     date = local
