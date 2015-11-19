@@ -21,6 +21,7 @@
     # get the name of the current branch.  Useful for other aliases.
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     bdiff = diff master...HEAD
+    stash-unstaged = stash -k -u # stashes unstaged and untracked files
     # update master & rebase current branch onto it
     remaster = "\
 !doremaster() {\
