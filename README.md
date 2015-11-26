@@ -2,6 +2,11 @@ This repo is for my personal settings files, which I want to sync & version cont
 
 ## Installation
 
+TODO: this stuff could be much cleaner.  The goal should be
+- one simple command to install everything
+- everything is a symlink to the repo, so updating = git pull
+- windows v. ubuntu issues are handled by code and not needed to be explicitly documented.
+
 Trying to set up as much as possible with `make`, but we'll see how that goes.
 
 First check out this repo at ~/settings_files.  Relocation not supported at this time.
@@ -20,3 +25,12 @@ I usually use msysgit which comes with a bash shell, and a bunch of basic utilit
 
 Other errata:
 - the vimrc is expected at ~/_vimrc instead of ~/.vimrc
+- the vim files directory is ~/vimfiles instead of ~/.vim
+
+## Vim plugins
+
+I'm using pathogen as my package manager and installing each plugin (including pathogen) as a submodule.
+
+Adding a new plugin like this:
+
+`git submodule add <repo url> .vim/bundle/<plugin name>`

@@ -2,11 +2,7 @@
 	ln -s ~/settings_files/vimrc ~/.vimrc
 
 ~/.vim:
-	mkdir ~/.vim
-
-# only run this once
-install_coffeevim: ~/.vim
-	bash -c "cd ~/.vim; unzip ~/settings_files/vim-coffee-script-v002.zip"
+	ln -s ~/settings_files/.vim ~/.vim
 
 ~/.inputrc:
 	ln -s ~/settings_files/inputrc ~/.inputrc
