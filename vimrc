@@ -7,11 +7,15 @@ filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
 filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
 
-" case insensitivity for path completion.
+" path completion settings
+set wildmenu    " visual autocomplete for command line.
+" case insensitivity.
 " Set if exists (it doesn't for windows) avoids error on vim start.
 if exists("&wildignorecase")
     set wildignorecase
 endif
+" ignore *.pyc for filename autocompletion
+set wildignore=*.pyc
 
 " shiftwidth deals with < and >.  tabstop deals with visual tab size.  softtabstop is
 " for tab size while editing (e.g. backspacing). You probably want these all equal.
@@ -21,7 +25,6 @@ set expandtab " spaces, not tabs
 "set number      " show line numbers
 set showcmd     " show last command entered at the bottom
 set cursorline  " highlight the current line
-set wildmenu    " visual autocomplete for command line.  Might be useful.
 set lazyredraw  " supposedly speeds up things like macros
 set showmatch   " highlight matching [{()}].  This seems to be default anyway.
 set scrolloff=1 " always show 1 line above/below the current one
