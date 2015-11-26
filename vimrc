@@ -1,3 +1,7 @@
+" load plugins
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 set mouse=a " enable the mouse
 filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
