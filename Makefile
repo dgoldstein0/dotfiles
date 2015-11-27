@@ -2,7 +2,8 @@
 	ln -s ~/settings_files/vimrc ~/.vimrc
 
 ~/.vim:
-	symlink.sh $(HOME)/settings_files/.vim/ $(HOME)/.vim/ $(HOME)/vimfiles/
+	# for some reason ~ isn't expanded on windows
+	./symlink.sh $(HOME)/settings_files/.vim/ $(HOME)/.vim/ $(HOME)/vimfiles/
 
 ~/.inputrc:
 	ln -s ~/settings_files/inputrc ~/.inputrc
