@@ -10,7 +10,7 @@ filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
 " path completion settings
 set wildmenu    " visual autocomplete for command line.
 " case insensitivity.
-" Set if exists (it doesn't for windows) avoids error on vim start.
+" Set if exists (it doesn't for windows with msysgit vim) avoids error on vim start.
 if exists("&wildignorecase")
     set wildignorecase
 endif
@@ -68,6 +68,9 @@ au BufRead,BufNewFile *.ts set filetype=typescript
 " use bash aliases when running shell commands from vim
 let $BASH_ENV = "~/.bash_aliases"
 
-" plugin settings
+""" plugin settings
 " turn off quote concealment for vim-json
 let g:vim_json_syntax_conceal = 0
+
+" ignore filetypes for nerdtree
+let NERDTreeIgnore=['\.pyc$', '\~$']
