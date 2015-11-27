@@ -14,7 +14,7 @@ fi
 # But junctions only work on folders, so copy the files for windows.
 if [[ $WINDOWS == 1 ]]; then
     junction ~/.vim/ ~/settings_files/.vim/;
-    cp ~/settings_files/vimrc ~/_vimrc
+    cp ~/settings_files/vimrc ~/.vimrc
     cp ~/settings_files/inputrc ~/.inputrc;
 else
     ln -s ~/settings_files/.vim/ ~/.vim/;

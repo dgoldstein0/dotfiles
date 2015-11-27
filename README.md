@@ -23,9 +23,6 @@ I usually use git-for-windows which comes with a bash shell, and a bunch of basi
 
 - ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile
 
-Other errata:
-- the vimrc is expected at ~/_vimrc instead of ~/.vimrc
-
 ## Vim plugins
 
 I'm using pathogen as my package manager and installing each plugin (including pathogen) as a submodule.
