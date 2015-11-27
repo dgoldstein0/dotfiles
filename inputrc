@@ -10,5 +10,5 @@ set completion-ignore-case on
 "\e[6~": end-of-history        # PageDown key
 "\e[3~": delete-char           # Delete key
 "\e[2~": quoted-insert         # Insert key
-"\eOD": backward-word          # Ctrl + Left Arrow key
-"\eOC": forward-word           # Ctrl + Right Arrow key
+"\eOD": backward-word          # Ctrl + Left Arrow key (git-for-windows Alt+Left)
+"\eOC": forward-word           # Ctrl + Right Arrow key (git-for-windows Alt+Right)

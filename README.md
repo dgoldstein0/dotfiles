@@ -19,13 +19,12 @@ First check out this repo at ~/settings_files.  Relocation not supported at this
 
 ## Windows-specific issues
 
-I usually use msysgit which comes with a bash shell, and a bunch of basic utilities.  It however does not include `make` by default. See http://stackoverflow.com/questions/3219926/using-make-with-msysgit for a fix.
+I usually use git-for-windows which comes with a bash shell, and a bunch of basic utilities.  It however does not include `make` by default. See http://stackoverflow.com/questions/3219926/using-make-with-msysgit for a fix.
 
 - ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile
 
 Other errata:
 - the vimrc is expected at ~/_vimrc instead of ~/.vimrc
-- the vim files directory is ~/vimfiles instead of ~/.vim
 
 ## Vim plugins
 
