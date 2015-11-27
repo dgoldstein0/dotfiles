@@ -3,6 +3,14 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 set mouse=a " enable the mouse
+" make dragging the vsplit divider with the mouse work.  Seems to work by default
+" in ubuntu over putty but not for git-for-windows - probably because the ttymouse
+" defaults to xterm there instead of xterm2, per
+" http://superuser.com/questions/549930/cant-resize-vim-splits-inside-tmux
+if &term == "xterm"
+    set ttymouse=xterm2
+endif
+
 filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
 filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
@@ -51,9 +59,6 @@ autocmd Filetype coffee,scss,javascript,typescript setlocal tabstop=2 shiftwidth
 
 """ END filetype specific settings
 
-
-
-
 " Match trailing whitespace and anything past 100 characters and color it red.
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\|\%100v.\+\)/
@@ -74,3 +79,4 @@ let g:vim_json_syntax_conceal = 0
 
 " ignore filetypes for nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
+
