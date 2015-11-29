@@ -59,9 +59,15 @@ autocmd Filetype coffee,scss,javascript,typescript setlocal tabstop=2 shiftwidth
 
 """ END filetype specific settings
 
-" Match trailing whitespace and anything past 100 characters and color it red.
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\(\s\+$\|\%100v.\+\)/
+" Match trailing whitespace
+highlight ExtraChars ctermbg=red guibg=red
+autocmd BufWinEnter * call matchadd('ExtraChars', '\(\s\+$\)')
+
+" highlight anything past 100 characters... for some filetypes
+autocmd BufWinEnter *.py,*.coffee,*.js call matchadd('ExtraChars', '\(\%100v.\+\)')
+" supposedly clearing matches when leaving a buffer fixes a memory leak.
+" function only available in vim 7.2+
+autocmd BufWinLeave * call clearmatches()
 
 " when editing a file, jump to last cursor position
 au BufReadPost * normal g'"
