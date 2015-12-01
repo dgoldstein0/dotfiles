@@ -97,7 +97,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
 " disable pylint, since it seems to not follow the configured python paths.
-let g:syntastic_python_checkers = ['python', 'flake8']
+" & enable arc lint
+let g:syntastic_python_checkers = ['python', 'flake8', 'arc']
+let g:syntastic_coffee_checkers = ['coffee', 'arc'] " arc should run coffeelint
 
 " This checks on each change of window whether there's only one window left, and if that one is a quickfix / location list, it quits Vim.  Not exactly what I want, but it's a start.
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
