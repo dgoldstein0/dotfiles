@@ -86,6 +86,7 @@ let g:vim_json_syntax_conceal = 0
 " ignore filetypes for nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
+""" Syntastic settings
 " suggested defaults for syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -93,5 +94,10 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" disable pylint, since it seems to not follow the configured python paths.
+let g:syntastic_python_checkers = ['python', 'flake8']
+
+" This checks on each change of window whether there's only one window left, and if that one is a quickfix / location list, it quits Vim.  Not exactly what I want, but it's a start.
+autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
