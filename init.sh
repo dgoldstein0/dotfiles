@@ -1,4 +1,4 @@
-#! bash
+#! /bin/bash
 
 # NOTE: this script should be idempotent, so it can be used to update
 # settings to the latest and not just to init a new machine.
@@ -17,7 +17,7 @@ if [[ $WINDOWS == 1 ]]; then
     cp ~/settings_files/vimrc ~/.vimrc
     cp ~/settings_files/inputrc ~/.inputrc;
 else
-    ln -s ~/settings_files/.vim/ ~/.vim/;
+    ln -s ~/settings_files/.vim ~/.vim;
     ln -s ~/settings_files/vimrc ~/.vimrc;
     ln -s ~/settings_files/inputrc ~/.inputrc;
 fi
