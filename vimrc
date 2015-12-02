@@ -104,6 +104,9 @@ let g:syntastic_coffee_checkers = ['coffee'] " arc should run coffeelint
 " This checks on each change of window whether there's only one window left, and if that one is a quickfix / location list, it quits Vim.  Not exactly what I want, but it's a start.
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 
+" vim launched via git having the wrong $SHELL env variable.  This works around that.
+set shell=bash
+
 """ ctrlp settings
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
