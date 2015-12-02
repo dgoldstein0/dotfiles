@@ -103,3 +103,13 @@ let g:syntastic_coffee_checkers = ['coffee'] " arc should run coffeelint
 
 " This checks on each change of window whether there's only one window left, and if that one is a quickfix / location list, it quits Vim.  Not exactly what I want, but it's a start.
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
+
+""" ctrlp settings
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
+" ignore gitignored files... will decide later if this is useful or not.
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
