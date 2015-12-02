@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/indentpython.vim"]
 	path = .vim/bundle/indentpython.vim
 	url = git@github.com:vim-scripts/indentpython.vim.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
