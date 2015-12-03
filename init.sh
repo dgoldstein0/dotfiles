@@ -17,7 +17,12 @@ if [[ $WINDOWS == 1 ]]; then
     cp ~/settings_files/vimrc ~/.vimrc
     cp ~/settings_files/inputrc ~/.inputrc;
 else
-    ln -s ~/settings_files/.vim ~/.vim;
+    # -n = don't follow symlinks.  This is needed to make this idempotent.
+    # Otherwise when the ~/.vim -> ~/settings_files/.vim symlink exists,
+    # ln decides to make a symlink from ~/.vim/.vim to ~/settings_files/.vim
+    # for some reason that's completely beyond me.  symlinks to files don't
+    # seem to have this problem.
+    ln -n -s ~/settings_files/.vim ~/.vim;
     ln -s ~/settings_files/vimrc ~/.vimrc;
     ln -s ~/settings_files/inputrc ~/.inputrc;
 fi
