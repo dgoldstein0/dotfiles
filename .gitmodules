@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = git@github.com:sjl/gundo.vim.git
+[submodule ".vim/bundle/vim-argumentative"]
+	path = .vim/bundle/vim-argumentative
+	url = git://github.com/PeterRincker/vim-argumentative.git
