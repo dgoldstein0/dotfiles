@@ -14,14 +14,37 @@ source_prompt() {
     fi
 }
 
+find_hg() {
+    # split current path and check if any level has a .hg.
+    # this skips /.hg because who will make their top level an hg repo?
+    # to fix that case, parts needs to start with an empty string as the
+    # first item.
+    # pwd -P = current working direct, symlinks resolved
+    local parts=$(echo $(pwd -P) | tr "/" "\n")
+    local dir=''
+    for part in $parts;
+    do
+        dir=$dir"/"$part
+        if [[ -d $dir"/.hg" ]]; then
+            return 0 # 0 is true
+        fi
+    done
+    return 1
+}
+
 # hg prompt code
 hg_prompt() {
-    # some protection to keep up from spamming the console
-    # with hg help when there's an error
-    OUTPUT=$(hg prompt "({branch}{status})" 2> /dev/null)
-    if [[ $? -eq 0 ]]; then
-        echo $OUTPUT
-    fi
+    # custom find_hg because calling hg prompt is slow so we want to avoid it
+    # outside of an hg repo.  It looks like most of the time to call hg prompt
+    # is python init, so you probably can't find a signficantly faster hg command.
+    if find_hg; then
+        # some protection to keep up from spamming the console
+        # with hg help when there's an error
+        OUTPUT=$(hg prompt "({branch}{status})" 2> /dev/null)
+        if [[ $? -eq 0 ]]; then
+            echo $OUTPUT
+        fi
+    fi;
 }
 
 # git prompt pieces
