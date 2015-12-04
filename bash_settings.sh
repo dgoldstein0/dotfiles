@@ -34,8 +34,8 @@ COLOR_WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
 
 git_color() {
-  local git_status="$(git status 2> /dev/null)"
-
+  # expected git status output as first parameter
+  local git_status=$1
   if [[ ! $git_status =~ "working directory clean" ]]; then
     echo -e $COLOR_RED
   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
@@ -51,10 +51,11 @@ color_reset() {
     echo -e $COLOR_RESET
 }
 
-git_branch() {
-  local git_status="$(git status 2> /dev/null)"
-  local on_branch="On branch ([^${IFS}]*)"
-  local on_commit="HEAD detached at ([^${IFS}]*)"
+function git_branch() {
+  # expected git status output as first parameter
+  local git_status="$1";
+  local on_branch="On branch ([^${IFS}]*)";
+  local on_commit="HEAD detached at ([^${IFS}]*)";
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
@@ -74,7 +75,10 @@ git_prompt() {
     #
     # source:
     # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
-    echo -e "\001$(git_color)\002$(git_branch)\001$(color_reset)\002"
+
+    # only fetch git status once for perf
+    local git_status="$(git status 2> /dev/null)"
+    echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\")\001$(color_reset)\002"
 }
 
 # override the terminal prompt with hg and git status pieces
