@@ -2,20 +2,15 @@ This repo is for my personal settings files, which I want to sync & version cont
 
 ## Installation
 
+Run after cloning the repo to `~/settings_files`, run `./init.sh`
+
 TODO: this stuff could be much cleaner.  The goal should be
 - one simple command to install everything
 - everything is a symlink to the repo, so updating = git pull
 - windows v. ubuntu issues are handled by code and not needed to be explicitly documented.
 
-Trying to set up as much as possible with `make`, but we'll see how that goes.
-
-First check out this repo at ~/settings_files.  Relocation not supported at this time.
-
-- vimrc: on Linux, `make ~/.vimrc`.  just generates a symlink.  On windows, you want ~/_vimrc to point to vimrc - either copy it their, or make a junction.
 - bash: you'll have to add `source ~/settings_files/bash_settings` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
 - you might want to `source ~/.bash_alias` in your .bashrc.  The vimrc here will use ~/.bash_alias for local aliases
-- vim coffescript: `make install_vimcoffee` should do it.  It just creates ~/.vim if it doesn't exist, and then unzips the zip file into it.
-- inputrc: `make ~/.inputrc`
 
 ## Windows-specific issues
 
