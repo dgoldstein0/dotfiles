@@ -16,6 +16,7 @@ if [[ $WINDOWS == 1 ]]; then
     junction ~/.vim/ ~/settings_files/.vim/;
     cp ~/settings_files/vimrc ~/.vimrc
     cp ~/settings_files/inputrc ~/.inputrc;
+    junction ~/.ipython/profile_default/ ~/settings_files/ipython_profile
 else
     # -n = don't follow symlinks.  This is needed to make this idempotent.
     # Otherwise when the ~/.vim -> ~/settings_files/.vim symlink exists,
@@ -25,6 +26,7 @@ else
     ln -n -s ~/settings_files/.vim ~/.vim;
     ln -s ~/settings_files/vimrc ~/.vimrc;
     ln -s ~/settings_files/inputrc ~/.inputrc;
+    ln -s ~/settings_files/ipython_profile ~/.ipython/profile_default
 fi
 
 git submodule init
