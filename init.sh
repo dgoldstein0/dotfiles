@@ -10,6 +10,8 @@ else
     WINDOWS=0;
 fi
 
+# TODO add a mode that's copying instead of symlinking, which can install to something other than ~.
+
 # Installation.  Symlinks on unix, junction points on windows.
 # But junctions only work on folders, so copy the files for windows.
 function link() {
@@ -22,6 +24,7 @@ function link() {
             echo "$SOURCE already exists, can't link it to $TARGET";
         fi
     else
+        # TODO add windows support with mklink
         ln -s $TARGET $SOURCE;
     fi
 }
