@@ -47,5 +47,17 @@ else
     link ~/settings_files/gitconfig_global ~/.gitconfig_global;
 fi
 
+if [[ $(git config --get user.email) = "" ]]; then
+    echo "What do you want as the default git email for this machine?"
+    read EMAIL;
+    if [ $? -ne 0 ]; then
+        echo "bailing out, user ctrl+c'ed.";
+        exit 1;
+    else
+        echo "setting email $EMAIL";
+        git config -f ~/.gitconfig_local user.email "$EMAIL";
+    fi
+fi
+
 git submodule init
 git submodule update
