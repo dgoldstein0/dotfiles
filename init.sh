@@ -24,30 +24,30 @@ function link() {
             echo "$SOURCE already exists, can't link it to $TARGET";
         fi
     else
-        # TODO add windows support with mklink
-        ln -s $TARGET $SOURCE;
+        if [[ $WINDOWS == 1 ]]; then
+            if [[ -d $TARGET ]]; then
+                junction.exe -q $SOURCE $TARGET;
+            else
+                # TODO use symlinks or hardlinks of some kind.
+                cp $TARGET $SOURCE;
+            fi
+        else
+            ln -s $TARGET $SOURCE;
+        fi
     fi
 }
 
-if [[ $WINDOWS == 1 ]]; then
-    junction ~/.vim/ ~/settings_files/.vim/;
-    cp ~/settings_files/vimrc ~/.vimrc
-    cp ~/settings_files/inputrc ~/.inputrc;
-    junction ~/.ipython/profile_default/ ~/settings_files/ipython_profile
-    junction ~/.gitconfig ~/settings_files/.gitconfig;
-    junction ~/.gitconfig_global ~/settings_files/gitconfig_global;
-else
-    # -n = don't follow symlinks.  This is needed to make this idempotent.
-    # Otherwise when the ~/.vim -> ~/settings_files/.vim symlink exists,
-    # ln decides to make a symlink from ~/.vim/.vim to ~/settings_files/.vim
-    # for some reason that's completely beyond me.  symlinks to files don't
-    # seem to have this problem.
-    link ~/settings_files/.vim ~/.vim;
-    link ~/settings_files/vimrc ~/.vimrc;
-    link ~/settings_files/inputrc ~/.inputrc;
-    link ~/settings_files/ipython_profile ~/.ipython/profile_default
-    link ~/settings_files/.gitconfig ~/.gitconfig;
-    link ~/settings_files/gitconfig_global ~/.gitconfig_global;
+link ~/settings_files/.vim ~/.vim;
+link ~/settings_files/vimrc ~/.vimrc;
+link ~/settings_files/inputrc ~/.inputrc;
+mkdir -p ~/.ipython
+link ~/settings_files/ipython_profile ~/.ipython/profile_default
+link ~/settings_files/.gitconfig ~/.gitconfig;
+link ~/settings_files/gitconfig_global ~/.gitconfig_global;
+
+# create empty ~/.gitconfig_local if it doesn't exist
+if [[ ! -e ~/.gitconfig_local ]]; then
+    touch ~/.gitconfig_local;
 fi
 
 if [[ $(git config --get user.email) = "" ]]; then
