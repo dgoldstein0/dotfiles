@@ -25,8 +25,7 @@ $1
 EOD
 }
 
-# Installation.  Symlinks on unix, junction points on windows.
-# But junctions only work on folders, so copy the files for windows.
+# Installation.  Symlinks on unix, junction points & hardlinks on windows.
 function link() {
     local SOURCE=$2;
     local TARGET=$1;
