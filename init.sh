@@ -40,6 +40,8 @@ function link() {
         if [[ $WINDOWS == 1 ]]; then
             if [[ -d $TARGET ]]; then
                 echo "creating junction from $SOURCE to $TARGET"
+                # TODO use mklink to create junction instead of junction,
+                # to kill the extra dependency.
                 junction.exe -q $SOURCE $TARGET > /dev/null;
             else
                 echo "creating hardlink from $SOURCE to $TARGET"
