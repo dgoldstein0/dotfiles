@@ -12,11 +12,23 @@ fi
 
 # TODO add a mode that's copying instead of symlinking, which can install to something other than ~.
 
+function posix_to_win() {
+    echo "$1" | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/'
+}
+
+function exec_cmd() {
+cmd << EOD
+$1
+EOD
+}
+
 # Installation.  Symlinks on unix, junction points on windows.
 # But junctions only work on folders, so copy the files for windows.
 function link() {
-    local SOURCE=$2;
-    local TARGET=$1;
+    # resolve relative paths here, so cmd doesn't choke on ~ on windows
+    # NOTE: if source is a junction to target, readlink resolves it to the target.
+    local SOURCE=$(readlink -f $2);
+    local TARGET=$(readlink -f $1);
     if [[ -e $SOURCE ]]; then
         if [[ $SOURCE -ef $TARGET ]]; then
             return;
@@ -26,10 +38,11 @@ function link() {
     else
         if [[ $WINDOWS == 1 ]]; then
             if [[ -d $TARGET ]]; then
+                echo "creating junction from $SOURCE to $TARGET"
                 junction.exe -q $SOURCE $TARGET;
             else
-                # TODO use symlinks or hardlinks of some kind.
-                cp $TARGET $SOURCE;
+                echo "creating hardlink from $SOURCE to $TARGET"
+                exec_cmd "mklink /H \"$(posix_to_win $SOURCE)\" \"$(posix_to_win $TARGET)\"" > /dev/null;
             fi
         else
             ln -s $TARGET $SOURCE;
