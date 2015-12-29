@@ -4,15 +4,17 @@
 # default editor: vim
 export EDITOR=vim
 
-# make python work as a REPL in git-bash (windows)
-function do_python() {
-    if [ $# -eq 0 ]; then
-        python.exe -i
-    else
-        python.exe $@
-    fi
-}
-alias python=do_python
+if [[ $(uname) != "Linux" ]]; then
+    # make python work as a REPL in git-bash (windows)
+    function do_python() {
+        if [ $# -eq 0 ]; then
+            python.exe -i
+        else
+            python.exe $@
+        fi
+    }
+    alias python=do_python
+fi
 
 # source control prompt
 source_prompt() {
