@@ -30,7 +30,7 @@
     local curbranch=\"$(git branch-name)\";\
     echo \"remastering branch ${curbranch}\";\
     git checkout master && echo \"checked out master\" &&\
-    git pull -u && echo \"pulled & updated master\" &&\
+    git pull && echo \"pulled & updated master\" &&\
     git checkout ${curbranch} && echo \"checked out ${curbranch}\" &&\
     git rebase master && echo \"rebased onto master\";\
 }; doremaster"
@@ -38,3 +38,6 @@
     unstage = reset HEAD
     trash-local = reset --hard HEAD
     forget = rm --cached # remove a file from git but don't delete it locally
+    bcommit = "!f() { git checkout -b "$1" && git commit;}; f"
+    squash = "!git reset --soft $1 && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\""
+
