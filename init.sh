@@ -126,3 +126,7 @@ if [[ $(git config -f $INSTALL_DIR/.gitconfig_local --get user.email) = "" ]]; t
     fi
 fi
 
+# hg stuff.  Haven't figured out a way to make hg submodules yet.
+if [[ ! -d ~/settings_files/hg-prompt ]]; then
+    hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
+fi
