@@ -55,7 +55,7 @@ nnoremap ,<space> :nohlsearch<CR>
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
 " Coffeescript, scss, javascript and typescript settings
-autocmd Filetype coffee,scss,javascript,typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd Filetype coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 """ END filetype specific settings
 
