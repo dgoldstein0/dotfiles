@@ -50,6 +50,7 @@ nnoremap ,<space> :nohlsearch<CR>
 """ Filetype specific settings follow.
 " Use setlocal instead of set so the command only affects the current buffer
 " instead of all buffers
+autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 
 " Makefile settings
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
