@@ -14,6 +14,7 @@ endif
 filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
 filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
+filetype plugin on " for pytest.vim to work
 
 " path completion settings
 set wildmenu    " visual autocomplete for command line.

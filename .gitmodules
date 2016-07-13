@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-ft-bzl"]
 	path = .vim/bundle/vim-ft-bzl
 	url = git@github.com:google/vim-ft-bzl.git
+[submodule ".vim/bundle/pytest.vim"]
+	path = .vim/bundle/pytest.vim
+	url = git@github.com:alfredodeza/pytest.vim.git
