@@ -115,5 +115,8 @@ let g:ctrlp_custom_ignore = {
 " ignore gitignored files... will decide later if this is useful or not.
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+""" vim-markdown settings
+let g:vim_markdown_folding_disabled = 1
+
 """ gundo settings
 nnoremap <c-u> :GundoToggle<CR>
