@@ -10,7 +10,7 @@ TODO: this stuff could be much cleaner.  The goal should be
 - windows v. ubuntu issues are handled by code and not needed to be explicitly documented.
 
 - bash: you'll have to add `source ~/settings_files/bash_settings.sh` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
-- you might want to `source ~/.bash_alias` in your .bashrc.  The vimrc here will use `~/.bash_alias` for local aliases
+- you might want to `source ~/.bash_aliases` in your .bashrc.  The vimrc here will use `~/.bash_aliases` for local aliases
 
 ## Windows-specific issues
 
