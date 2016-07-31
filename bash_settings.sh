@@ -71,7 +71,7 @@ COLOR_RESET="\033[0m"
 git_color() {
   # expected git status output as first parameter
   local git_status=$1
-  if [[ ! $git_status =~ "working directory clean" ]]; then
+  if [[ (! $git_status =~ "working directory clean") && (! $git_status =~ "working tree clean")]]; then
     echo -e $COLOR_RED
   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
     echo -e $COLOR_YELLOW
