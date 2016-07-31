@@ -130,3 +130,8 @@ fi
 if [[ ! -d ~/settings_files/hg-prompt ]]; then
     hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
 fi
+
+# compile vimproc
+pushd ~/.vim/bundle/vimproc.vim
+make
+popd
