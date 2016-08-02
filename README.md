@@ -25,3 +25,9 @@ I'm using pathogen as my package manager and installing each plugin (including p
 Adding a new plugin like this:
 
 `git submodule add <repo url> .vim/bundle/<plugin name>`
+
+## requirements
+
+some of the vim plugins require vim 7.4 (whereas 7.3 is standard on ubuntu 12.04).  To get 7.4 on 12.04, you can follow http://ubuntuhandbook.org/index.php/2013/08/upgrade-vim-7-4-ubuntu/.
+
+But better yet, start off with ubuntu 14.04+.
