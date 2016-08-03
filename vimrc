@@ -56,8 +56,9 @@ autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 " Makefile settings
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
-" Coffeescript, scss, javascript and typescript settings
-autocmd Filetype coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+" Coffeescript, scss, javascript, scala and typescript settings
+" and puppet (conf = .pp files)
+autocmd Filetype conf,coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 """ END filetype specific settings
 
