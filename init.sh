@@ -151,11 +151,14 @@ else
     echo "hg not detected on \$PATH; skipping hg-prompt installation"
 fi
 
-# compile vimproc
-pushd ~/.vim/bundle/vimproc.vim
-if [[ $WINDOWS == 1 ]]; then
-    /c/Program\ Files\ \(x86\)/GnuWin32/bin/make.exe -f make_mingw32.mak CC=mingw32-gcc
-else
-    make
+if [[ $WINDOWS == 0 ]]; then
+    # compile vimproc
+    pushd ~/.vim/bundle/vimproc.vim
+    if [[ $WINDOWS == 1 ]]; then
+        # TODO make vimproc work on windows
+        /c/Program\ Files\ \(x86\)/GnuWin32/bin/make.exe -f make_mingw32.mak CC=mingw32-gcc
+    else
+        make
+    fi
+    popd
 fi
-popd
