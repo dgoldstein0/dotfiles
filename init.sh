@@ -99,13 +99,12 @@ function link() {
 
 # first and foremost: setup shell env
 if [[ $WINDOWS == 1 ]]; then
-    if [[ -e ~/.bash_profile ]]; then
-        echo "~/.bash_profile exists, skipping generating";
-    else
-        cat << EOD > ~/.bash_profile
-source ~/settings_files/windows_bash_profile
-EOD
-        source ~/.bash_profile;
+    link ~/settings_files/windows_bash_profile $INSTALL_DIR/.bash_profile
+    link ~/settings_files/windows_bash_profile_global $INSTALL_DIR/.bash_profile_global
+
+    # create empty ~/.bash_profile_local if it doesn't exist
+    if [[ ! -e $INSTALL_DIR/.bash_profile_local ]]; then
+        touch $INSTALL_DIR/.bash_profile_local;
     fi
 fi
 
