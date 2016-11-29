@@ -14,9 +14,11 @@ TODO: this stuff could be much cleaner.  The goal should be
 
 ## Windows-specific issues
 
-I usually use git-for-windows which comes with a bash shell, and a bunch of basic utilities.  It however does not include `make` by default. See http://stackoverflow.com/questions/3219926/using-make-with-msysgit for a fix.
+I usually use git-for-windows which comes with a bash shell, and a bunch of basic utilities.  It however is missing some basic utils, which I've added in .win-bin/.
 
-- ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile
+- ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile.  If there's no ~/.bash_profile this is set up automatically.
+- ssh access to my github repos is needed.  Which is a bit of a circular dep.  After cloning the repo and setting up ssh_agent.sh as described above, set up .ssh/id_rsa and then run `ssh-add`.
+- http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html may come in handy
 
 ## Vim plugins
 

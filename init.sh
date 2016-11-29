@@ -80,7 +80,7 @@ function link() {
                 echo "creating junction from $SOURCE to $TARGET"
                 # TODO use mklink to create junction instead of junction,
                 # to kill the extra dependency.
-                junction.exe -q $SOURCE $TARGET > /dev/null;
+                ./.win-bin/junction.exe -q $SOURCE $TARGET > /dev/null;
             else
                 echo "creating hardlink from $SOURCE to $TARGET"
                 exec_cmd "mklink /H \"$(posix_to_win $SOURCE)\" \"$(posix_to_win $TARGET)\"" > /dev/null;
@@ -97,7 +97,22 @@ function link() {
     fi
 }
 
+# first and foremost: setup shell env
+if [[ $WINDOWS == 1 ]]; then
+    if [[ -e ~/.bash_profile ]]; then
+        echo "~/.bash_profile exists, skipping generating";
+    else
+        cat << EOD > ~/.bash_profile
+source ~/settings_files/ssh_agent.sh
+EOD
+        source ~/.bash_profile;
+    fi
+fi
+
 # do this first so it happens before any copying of directories
+
+# TODO: this is slow - otherwise I'd just do this by default.
+#git submodule sync # sync any url changes to the .git/config
 git submodule init
 git submodule update
 
@@ -126,9 +141,14 @@ if [[ $(git config -f $INSTALL_DIR/.gitconfig_local --get user.email) = "" ]]; t
     fi
 fi
 
-# hg stuff.  Haven't figured out a way to make hg submodules yet.
-if [[ ! -d ~/settings_files/hg-prompt ]]; then
-    hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
+which hg >& /dev/null;
+if [[ $? == 0 ]]; then
+    # hg stuff.  Haven't figured out a way to make hg submodules yet.
+    if [[ ! -d ~/settings_files/hg-prompt ]]; then
+        hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
+    fi
+else
+    echo "hg not detected on \$PATH; skipping hg-prompt installation"
 fi
 
 # compile vimproc

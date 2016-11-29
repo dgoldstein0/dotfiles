@@ -12,7 +12,7 @@
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule ".vim/bundle/vim-json"]
 	path = .vim/bundle/vim-json
-	url = git@github.com:elzr/vim-json.git
+	url = https://github.com/elzr/vim-json.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -24,16 +24,16 @@
 	url = ssh://git@github.com/dgoldstein0/syntastic.git
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
-	url = git@github.com:derekwyatt/vim-scala.git
+	url = https://github.com/derekwyatt/vim-scala.git
 [submodule ".vim/bundle/indentpython.vim"]
 	path = .vim/bundle/indentpython.vim
-	url = git@github.com:vim-scripts/indentpython.vim.git
+	url = https://github.com/vim-scripts/indentpython.vim.git
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
-	url = git@github.com:ctrlpvim/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
-	url = git@github.com:sjl/gundo.vim.git
+	url = https://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = git://github.com/PeterRincker/vim-argumentative.git
@@ -42,19 +42,19 @@
 	url = git://github.com/tpope/vim-jdaddy.git
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
+	url = https://github.com/plasticboy/vim-markdown.git
 [submodule ".vim/bundle/typescript-vim"]
 	path = .vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule ".vim/bundle/vim-ft-bzl"]
 	path = .vim/bundle/vim-ft-bzl
-	url = git@github.com:google/vim-ft-bzl.git
+	url = https://github.com/google/vim-ft-bzl.git
 [submodule ".vim/bundle/pytest.vim"]
 	path = .vim/bundle/pytest.vim
-	url = git@github.com:alfredodeza/pytest.vim.git
+	url = https://github.com/alfredodeza/pytest.vim.git
 [submodule ".vim/bundle/vimproc.vim"]
 	path = .vim/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
