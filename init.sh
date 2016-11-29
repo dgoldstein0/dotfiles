@@ -103,7 +103,7 @@ if [[ $WINDOWS == 1 ]]; then
         echo "~/.bash_profile exists, skipping generating";
     else
         cat << EOD > ~/.bash_profile
-source ~/settings_files/ssh_agent.sh
+source ~/settings_files/windows_bash_profile
 EOD
         source ~/.bash_profile;
     fi
@@ -153,5 +153,9 @@ fi
 
 # compile vimproc
 pushd ~/.vim/bundle/vimproc.vim
-make
+if [[ $WINDOWS == 1 ]]; then
+    /c/Program\ Files\ \(x86\)/GnuWin32/bin/make.exe -f make_mingw32.mak CC=mingw32-gcc
+else
+    make
+fi
 popd
