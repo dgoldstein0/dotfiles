@@ -109,7 +109,8 @@ EOD
     fi
 fi
 
-# do this first so it happens before any copying of directories
+# fixup .git/config so I can push with my ssh keys, if cloned over https
+perl -p -i -e "s~https://github\.com/dgoldstein0/settings_files\.git~git\@github\.com:dgoldstein0/settings_files\.git~" .git/config
 
 # TODO: this is slow - otherwise I'd just do this by default.
 #git submodule sync # sync any url changes to the .git/config
