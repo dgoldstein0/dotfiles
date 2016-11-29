@@ -126,3 +126,18 @@ let g:vim_markdown_folding_disabled = 1
 
 """ gundo settings
 nnoremap <c-u> :GundoToggle<CR>
+
+""" Diffusion links
+function! DiffusionLink()
+  let line_number = line('.')
+  let full_path = expand('%:p')
+  if full_path !~ "^/srv/server/"
+    echo "File is not in server repo"
+    return
+  endif
+  let rel_path = substitute(full_path, "^/srv/server/", "", "")
+  let rev = substitute(system("git rev-parse master"), '\n\+$', '', '')
+  let link = "https://tails.corp.dropbox.com/diffusion/SERVER/browse/master/" . rel_path . ";" . rev . "$" . line_number
+  echo link
+endfunction
+command! DiffusionLink call DiffusionLink()
