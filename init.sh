@@ -161,4 +161,11 @@ if [[ $WINDOWS == 0 ]]; then
         make
     fi
     popd
+
+    # TODO: ctrlp-cmatcher has windows install instructions, but I haven't tested that yet
+    # install ctrlp-cmatcher
+    pushd ~/.vim/bundle/ctrlp-cmatcher
+    ./install.sh
+    popd
 fi
+

@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule ".vim/bundle/ctrlp-cmatcher"]
+	path = .vim/bundle/ctrlp-cmatcher
+	url = https://github.com/JazzCore/ctrlp-cmatcher
