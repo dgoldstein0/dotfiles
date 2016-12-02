@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/indentpython.vim"]
 	path = .vim/bundle/indentpython.vim
 	url = https://github.com/vim-scripts/indentpython.vim.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
@@ -64,6 +61,3 @@
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
-[submodule ".vim/bundle/ctrlp-cmatcher"]
-	path = .vim/bundle/ctrlp-cmatcher
-	url = https://github.com/JazzCore/ctrlp-cmatcher

@@ -111,19 +111,6 @@ autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 " vim launched via git having the wrong $SHELL env variable.  This works around that.
 set shell=bash
 
-""" ctrlp settings
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-
-" ignore gitignored files... will decide later if this is useful or not.
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" ctrlp-cmatcher
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-
 """ vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 
