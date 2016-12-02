@@ -112,7 +112,7 @@ git_prompt() {
     # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
 
     # only fetch git status once for perf
-    local git_status="$(git status 2> /dev/null)"
+    local git_status="$(git status --ignore-submodules=all 2> /dev/null)"
     echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\")\001$(color_reset)\002"
 }
 
