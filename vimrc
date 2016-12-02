@@ -97,8 +97,8 @@ let g:syntastic_check_on_wq = 0
 
 " disable pylint, since it seems to not follow the configured python paths.
 " arc works... but is really slow.
-let g:syntastic_python_checkers = ['python -c "import dropbox.pyxl.codec.register"', 'flake8']
-let g:syntastic_coffee_checkers = ['coffee'] " arc should run coffeelint
+let g:syntastic_python_checkers = ['flake8'] " todo make pyxl-python syntaxt checker work
+let g:syntastic_coffee_checkers = ['coffee', 'coffeelint'] " arc should run coffeelint... but arc lint via syntastic is disabled for now
 
 " use tsuquyomi for syntastic typescript checking, instead of tsuquyomi's
 " default quickfix stuff.  syntastic is slightly nicer.
