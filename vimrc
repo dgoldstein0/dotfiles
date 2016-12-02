@@ -121,6 +121,9 @@ let g:ctrlp_custom_ignore = {
 " ignore gitignored files... will decide later if this is useful or not.
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+" ctrlp-cmatcher
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+
 """ vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 
