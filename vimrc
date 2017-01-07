@@ -80,7 +80,7 @@ au BufReadPost * normal g'"
 au BufRead,BufNewFile *.ts set filetype=typescript
 
 " use bash aliases when running shell commands from vim
-let $BASH_ENV = "~/.bash_aliases"
+let $BASH_ENV = "~/.vim_bash_env"
 
 """ plugin settings
 " turn off quote concealment for vim-json
