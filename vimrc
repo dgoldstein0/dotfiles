@@ -67,7 +67,7 @@ highlight ExtraChars ctermbg=red guibg=red
 autocmd BufWinEnter * call matchadd('ExtraChars', '\(\s\+$\)')
 
 " highlight anything past 100 characters... for some filetypes
-autocmd BufWinEnter *.py,*.coffee,*.js call matchadd('ExtraChars', '\(\%100v.\+\)')
+autocmd BufWinEnter *.py,*.coffee,*.js,*.ts call matchadd('ExtraChars', '\(\%100v.\+\)')
 " supposedly clearing matches when leaving a buffer fixes a memory leak.
 " function only available in vim 7.2+
 autocmd BufWinLeave * call clearmatches()
