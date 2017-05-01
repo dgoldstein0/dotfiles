@@ -1,3 +1,5 @@
+%include .hgrc_local
+
 [extensions]
 rebase =
 hg-prompt = ~/settings_files/hg-prompt/prompt.py

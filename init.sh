@@ -147,6 +147,13 @@ if [[ $? == 0 ]]; then
     if [[ ! -d ~/settings_files/hg-prompt ]]; then
         hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
     fi
+
+    link ~/settings_files/hgrc $INSTALL_DIR/.hgrc;
+
+    # create empty ~/.hgrc_local if it doesn't exist
+    if [[ ! -e $INSTALL_DIR/.hgrc_local ]]; then
+        touch $INSTALL_DIR/.hgrc_local;
+    fi
 else
     echo "hg not detected on \$PATH; skipping hg-prompt installation"
 fi
