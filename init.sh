@@ -148,6 +148,7 @@ if [[ $? == 0 ]]; then
         hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
     fi
 
+    # link in my hgrc
     link ~/settings_files/hgrc $INSTALL_DIR/.hgrc;
 
     # create empty ~/.hgrc_local if it doesn't exist
