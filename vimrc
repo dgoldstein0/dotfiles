@@ -47,18 +47,19 @@ set incsearch   " search as characters are entered
 set hlsearch    " highlight all matches
 nnoremap ,<space> :nohlsearch<CR>
 
-
-""" Filetype specific settings follow.
+""" Overrides to mark certain nonstandard files as certain types
 " Use setlocal instead of set so the command only affects the current buffer
 " instead of all buffers
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
+autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
 
+""" Filetype specific settings follow.
 " Makefile settings
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
 " Coffeescript, scss, javascript, scala and typescript settings
 " and puppet (conf = .pp files)
-autocmd Filetype conf,coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType conf,coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 """ END filetype specific settings
 
