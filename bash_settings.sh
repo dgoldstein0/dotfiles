@@ -26,9 +26,9 @@ source_prompt() {
     fi
 }
 
-find_hg() {
-    # split current path and check if any level has a .hg.
-    # this skips /.hg because who will make their top level an hg repo?
+find_dir() {
+    # split current path and check if any level has a $1.
+    # this skips /$1 because who will make their top level an hg repo?
     # to fix that case, parts needs to start with an empty string as the
     # first item.
     # pwd -P = current working direct, symlinks resolved
@@ -37,7 +37,15 @@ find_hg() {
     for part in $parts;
     do
         dir=$dir"/"$part
-        if [[ -d $dir"/.hg" ]]; then
+        # exit early if we have a symlink in our path.
+        # following symlinks can get us in a lot of trouble.  In particular,
+        # navigating around a bazel-bin folder seems to cause trouble because
+        # bazel-bin contains a copy of .git but the folder has massively
+        # different contents than the repo so git status is slow (and inaccurate)
+        # because it ends up with too much to report.
+        if [[ -L $dir"/$1" ]]; then
+            return 1
+        elif [[ -d $dir"/$1" ]]; then
             return 0 # 0 is true
         fi
     done
@@ -49,7 +57,7 @@ hg_prompt() {
     # custom find_hg because calling hg prompt is slow so we want to avoid it
     # outside of an hg repo.  It looks like most of the time to call hg prompt
     # is python init, so you probably can't find a signficantly faster hg command.
-    if find_hg; then
+    if find_dir ".hg"; then
         # some protection to keep up from spamming the console
         # with hg help when there's an error
         OUTPUT=$(hg prompt "({branch}{status})" 2> /dev/null)
@@ -102,18 +110,20 @@ function git_branch() {
 }
 
 git_prompt() {
-    # the color characters are surrounded in \001 and \002 to tell
-    # bash that these characters are non-printable, so should be excluded
-    # for the purposes of line-wrapping calculations.  Usually we'd use \[
-    # and \], but, echo (and echo -e) don't understand these.  the -e is
-    # because we want echo to parse \001 and \002 as control characters.
-    #
-    # source:
-    # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
+    if find_dir ".git"; then
+        # the color characters are surrounded in \001 and \002 to tell
+        # bash that these characters are non-printable, so should be excluded
+        # for the purposes of line-wrapping calculations.  Usually we'd use \[
+        # and \], but, echo (and echo -e) don't understand these.  the -e is
+        # because we want echo to parse \001 and \002 as control characters.
+        #
+        # source:
+        # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
 
-    # only fetch git status once for perf
-    local git_status="$(git status --ignore-submodules=all 2> /dev/null)"
-    echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\")\001$(color_reset)\002"
+        # only fetch git status once for perf
+        local git_status="$(git status --ignore-submodules=all 2> /dev/null)"
+        echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\")\001$(color_reset)\002"
+    fi
 }
 
 # override the terminal prompt with hg and git status pieces
