@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule ".vim/bundle/neoformat"]
+	path = .vim/bundle/neoformat
+	url = https://github.com/sbdchd/neoformat

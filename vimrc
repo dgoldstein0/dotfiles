@@ -132,3 +132,9 @@ function! DiffusionLink()
   echo link
 endfunction
 command! DiffusionLink call DiffusionLink()
+
+""" prettier typescript on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
