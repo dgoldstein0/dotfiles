@@ -1,3 +1,5 @@
 [include]
     path = .gitconfig_global
     path = .gitconfig_local
+[branch]
+	autoSetupMerge = always
