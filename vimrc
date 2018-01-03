@@ -136,5 +136,9 @@ command! DiffusionLink call DiffusionLink()
 """ prettier typescript on save
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre *.tsx undojoin | Neoformat
+  autocmd BufWritePre *.ts undojoin | Neoformat
 augroup END
+
+autocmd BufWritePost *.tsx | SyntasticCheck
+autocmd BufWritePost *.ts | SyntasticCheck
