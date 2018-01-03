@@ -137,3 +137,6 @@ export PS1='\[\r\]\h:\w $(source_prompt)$ '
 
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
+
+source ~/.bash_alias.sh
+
