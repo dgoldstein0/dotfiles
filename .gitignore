@@ -1,3 +1,4 @@
 /.vim/.netrwhist
+/.vim/undo-dir/**/*
 /ipython_profile/history.sqlite
 /hg-prompt

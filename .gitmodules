@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/neoformat"]
 	path = .vim/bundle/neoformat
 	url = https://github.com/sbdchd/neoformat
+[submodule ".vim/bundle/undofile_warn"]
+	path = .vim/bundle/undofile_warn
+	url = https://github.com/Carpetsmoker/undofile_warn.vim.git

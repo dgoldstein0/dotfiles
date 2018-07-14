@@ -118,6 +118,10 @@ let g:vim_markdown_folding_disabled = 1
 """ gundo settings
 nnoremap <c-u> :GundoToggle<CR>
 
+""" more undo stuff - persist undo history between sessions
+set undodir=~/.vim/undo-dir
+set undofile
+
 """ Diffusion links
 function! DiffusionLink()
   let line_number = line('.')
