@@ -20,6 +20,10 @@ I usually use git-for-windows which comes with a bash shell, and a bunch of basi
 - ssh access to my github repos is needed.  Which is a bit of a circular dep.  After cloning the repo and setting up ssh_agent.sh as described above, set up .ssh/id_rsa and then run `ssh-add`.
 - http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html may come in handy
 
+## Windows Subsystem for Linux issues
+
+Tried this with Ubuntu 16.04; seems to have the same ssh-agent issue as standard windows so `source ~/settings_files/ssh_agent.ssh` in .bashrc was also needed.
+
 ## Vim plugins
 
 I'm using pathogen as my package manager and installing each plugin (including pathogen) as a submodule.
