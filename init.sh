@@ -166,6 +166,8 @@ if [[ $WINDOWS == 0 ]]; then
         # TODO make vimproc work on windows
         /c/Program\ Files\ \(x86\)/GnuWin32/bin/make.exe -f make_mingw32.mak CC=mingw32-gcc
     else
+        sudo apt-get update
+        sudo apt install make gcc
         make
     fi
     popd
