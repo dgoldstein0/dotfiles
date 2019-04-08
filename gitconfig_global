@@ -33,7 +33,7 @@
     local curbranch=\"$(git branch-name)\";\
     echo \"remastering branch ${curbranch}\";\
     git checkout master && echo \"checked out master\" &&\
-    git pull && echo \"pulled & updated master\" &&\
+    git pull origin master && echo \"pulled & updated master\" &&\
     git checkout ${curbranch} && echo \"checked out ${curbranch}\" &&\
     git rebase master && echo \"rebased onto master\";\
 }; doremaster"
