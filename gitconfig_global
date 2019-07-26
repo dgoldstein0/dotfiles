@@ -45,4 +45,9 @@
     prune = fetch --prune
     squash = "!git reset --soft $1 && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\""
     stash-all = stash save --include-untracked
+    compare = "\
+!docompare() {\
+    git merge-base --is-ancestor $1 $2 && echo \"$1 is an ancestor of $2\";\
+    git merge-base --is-ancestor $2 $1 && echo \"$2 is an ancestor of $1\";\
+}; docompare"
 

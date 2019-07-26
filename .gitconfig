@@ -3,3 +3,7 @@
     path = .gitconfig_local
 [branch]
 	autoSetupMerge = always
+[status]
+	submoduleSummary = true
+[diff]
+	submodule = log
