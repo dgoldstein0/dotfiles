@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/undofile_warn"]
 	path = .vim/bundle/undofile_warn
 	url = https://github.com/Carpetsmoker/undofile_warn.vim.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
