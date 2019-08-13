@@ -2,6 +2,9 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+" enable normal backspace behavior
+set backspace=indent,eol,start
+
 set mouse=a " enable the mouse
 " make dragging the vsplit divider with the mouse work.  Seems to work by default
 " in ubuntu over putty but not for git-for-windows - probably because the ttymouse
@@ -31,6 +34,7 @@ set wildignore=*.pyc
 set tabstop=4 shiftwidth=4 softtabstop=4
 set expandtab " spaces, not tabs
 
+set ruler       " show the current cursor position in the bottom right of the buffer
 "set number      " show line numbers
 set showcmd     " show last command entered at the bottom
 set cursorline  " highlight the current line
