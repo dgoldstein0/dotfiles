@@ -34,6 +34,6 @@ Adding a new plugin like this:
 
 ## requirements
 
-some of the vim plugins require vim 7.4 (whereas 7.3 is standard on ubuntu 12.04).  To get 7.4 on 12.04, you can follow http://ubuntuhandbook.org/index.php/2013/08/upgrade-vim-7-4-ubuntu/.
+I've actually started using vim 8.1 now, though most will work on 7.4+.  Gundo needs python support (but compiling with python & python3 is problematic for unknown reasons) so I'm running a py2-only version right now (py3 only may also be fine).
 
-But better yet, start off with ubuntu 14.04+.
+To get vim-go working, you'll need to set GOPATH in .bashrc (or equivalent); go will search the gopath for modules, but it'll install into the first path, so it makes sense to set it up as `GOPATH=<path to put new things>;<path to existing modules / repo source code>`; and put /usr/local/go/bin on PATH and run through https://golang.org/doc/install#install to get a copy of the latest go toolchain.  After getting that installed and making sure `which go` points to the right go compiler, launch vim and :GoInstallBinaries to complete setup; as long as you have a new-enough go it should install everything correctly.
