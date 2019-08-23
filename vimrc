@@ -120,6 +120,10 @@ set shell=bash
 let g:vim_markdown_folding_disabled = 1
 
 """ gundo settings
+" gundo defaults to trying to use py2, make it use py3 instead.  this is necessary
+" if vim is compiled with py3 instead of py2, and using both together is usually also problematic
+let g:gundo_prefer_python3 = 1
+" set up ctrl+u to toggle the gundo panel
 nnoremap <c-u> :GundoToggle<CR>
 
 """ more undo stuff - persist undo history between sessions
