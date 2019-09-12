@@ -37,6 +37,18 @@
     git checkout ${curbranch} && echo \"checked out ${curbranch}\" &&\
     git rebase master && echo \"rebased onto master\";\
 }; doremaster"
+    pullmaster = "\
+!bash -c 'dopullmaster() {\n\
+    local curbranch=\"$(git branch-name)\";\n\
+    if [ \"${curbranch}\" == 'master' ]; then\n\
+        git pull origin master;\n\
+    else\n\
+        git fetch origin master && \n\
+        (git merge-base --is-ancestor master origin/master && \n\
+         git branch -f master origin/master; git pull master) || \n\
+        echo \"not updating master because it is not an ancestor of origin/master\";\n\
+    fi\n\
+}; dopullmaster'"
     # Unstage all files that have been added to the staging area
     unstage = reset HEAD
     # remove a file from git but don't delete it locally
