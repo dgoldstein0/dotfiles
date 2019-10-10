@@ -61,9 +61,9 @@ autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
 " Makefile settings
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
-" Coffeescript, scss, javascript, scala and typescript settings
+" Coffeescript, scss, javascript, scala, yaml, and typescript settings
 " and puppet (conf = .pp files)
-autocmd FileType conf,coffee,scss,javascript,typescript,scala setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType conf,coffee,scss,javascript,typescript,scala,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 """ END filetype specific settings
 
