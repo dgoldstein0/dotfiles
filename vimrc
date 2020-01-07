@@ -145,10 +145,21 @@ endfunction
 command! DiffusionLink call DiffusionLink()
 
 """ prettier typescript on save
+let g:neoformat_enabled_bzl = ['buildifier']
+let g:neoformat_bzl_buildifier = {
+            \ 'exe': 'buildifier',
+            \ 'replace': 1,
+            \ }
+
 augroup fmt
   autocmd!
   autocmd BufWritePre *.tsx undojoin | Neoformat
   autocmd BufWritePre *.ts undojoin | Neoformat
+
+  """ bzl fmt on BUILD and BUILD.in files
+  autocmd BufWritePre BUILD.in Neoformat
+  autocmd BufWritePre BUILD Neoformat
+  autocmd BufWritePre *.bzl Neoformat
 augroup END
 
 autocmd BufWritePost *.tsx | SyntasticCheck
