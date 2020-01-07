@@ -146,6 +146,10 @@ command! DiffusionLink call DiffusionLink()
 
 """ prettier typescript on save
 let g:neoformat_enabled_bzl = ['buildifier']
+" buildifier configuration is necessary because when it gets it's input from
+" stdin, it doesn't know the difference between BUILD and .bzl files; we can
+" observe this from it not sorting deps lists when formatting BUILD files.
+" replace: 1 fixes this by giving it an actual file to work with.
 let g:neoformat_bzl_buildifier = {
             \ 'exe': 'buildifier',
             \ 'replace': 1,
@@ -156,7 +160,8 @@ augroup fmt
   autocmd BufWritePre *.tsx undojoin | Neoformat
   autocmd BufWritePre *.ts undojoin | Neoformat
 
-  """ bzl fmt on BUILD and BUILD.in files
+  """ bzl fmt on BUILD, BUILD.in, and *.bzl files.
+  " undojoin isn't necessary because of the custom neoformat config
   autocmd BufWritePre BUILD.in Neoformat
   autocmd BufWritePre BUILD Neoformat
   autocmd BufWritePre *.bzl Neoformat
