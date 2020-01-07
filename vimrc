@@ -56,6 +56,7 @@ nnoremap ,<space> :nohlsearch<CR>
 " instead of all buffers
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact " not sure why tsx doesn't work normally
 
 """ Filetype specific settings follow.
 " Makefile settings
@@ -71,8 +72,6 @@ autocmd FileType conf,coffee,scss,javascript,typescript,scala,yaml setlocal tabs
 highlight ExtraChars ctermbg=red guibg=red
 autocmd BufWinEnter * call matchadd('ExtraChars', '\(\s\+$\)')
 
-" highlight anything past 100 characters... for some filetypes
-autocmd BufWinEnter *.py,*.coffee,*.js,*.ts call matchadd('ExtraChars', '\(\%100v.\+\)')
 " supposedly clearing matches when leaving a buffer fixes a memory leak.
 " function only available in vim 7.2+
 autocmd BufWinLeave * call clearmatches()
