@@ -146,6 +146,12 @@ command! DiffusionLink call DiffusionLink()
 
 """ prettier typescript on save
 let g:neoformat_enabled_bzl = ['buildifier']
+let g:neoformat_enabled_typescriptreact = ["prettier"]
+let g:neoformat_typescriptreact_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin', '--stdin-filepath', '"%p"', '--parser', 'typescript'],
+    \ 'stdin': 1
+    \ }
 " buildifier configuration is necessary because when it gets it's input from
 " stdin, it doesn't know the difference between BUILD and .bzl files; we can
 " observe this from it not sorting deps lists when formatting BUILD files.
