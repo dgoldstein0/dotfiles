@@ -56,7 +56,6 @@ nnoremap ,<space> :nohlsearch<CR>
 " instead of all buffers
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
-autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact " not sure why tsx doesn't work normally
 
 """ Filetype specific settings follow.
 " Makefile settings
@@ -78,10 +77,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " when editing a file, jump to last cursor position
 au BufReadPost * normal g'"
-
-" auto set file types (most do this by default)
-" ts => typescript
-au BufRead,BufNewFile *.ts set filetype=typescript
 
 " use bash aliases when running shell commands from vim
 let $BASH_ENV = "~/.vim_bash_env"
@@ -144,14 +139,10 @@ function! DiffusionLink()
 endfunction
 command! DiffusionLink call DiffusionLink()
 
-""" prettier typescript on save
+""" prettier typescript on save, black python
+let g:neoformat_enabled_python = ["black"]
 let g:neoformat_enabled_bzl = ['buildifier']
-let g:neoformat_enabled_typescriptreact = ["prettier"]
-let g:neoformat_typescriptreact_prettier = {
-    \ 'exe': 'prettier',
-    \ 'args': ['--stdin', '--stdin-filepath', '"%p"', '--parser', 'typescript'],
-    \ 'stdin': 1
-    \ }
+
 " buildifier configuration is necessary because when it gets it's input from
 " stdin, it doesn't know the difference between BUILD and .bzl files; we can
 " observe this from it not sorting deps lists when formatting BUILD files.
