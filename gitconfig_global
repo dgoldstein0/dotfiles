@@ -61,4 +61,9 @@
     git merge-base --is-ancestor $1 $2 && echo \"$1 is an ancestor of $2\";\
     git merge-base --is-ancestor $2 $1 && echo \"$2 is an ancestor of $1\";\
 }; docompare"
+    cleanup = "!bash -c 'cleanup() {\n\
+        local top=\"$(git rev-parse --show-toplevel)\";\n\
+        sudo rm -rf $(ls -h \"$top/.git/objects/pack/tmp_pack*\");\n\
+}; cleanup'"
+
 
