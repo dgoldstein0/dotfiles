@@ -14,6 +14,11 @@ if &term == "xterm"
     set ttymouse=xterm2
 endif
 
+" make vsplits and hsplits open right and below, respectively, rather than
+" left and above
+set splitbelow
+set splitright
+
 filetype on " turn on filetype detection
 syntax on   " turn on syntax highlighting
 filetype indent on " turns on filetype specific indents from ~/.vim/indent/*
