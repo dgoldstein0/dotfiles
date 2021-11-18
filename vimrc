@@ -160,14 +160,15 @@ let g:neoformat_bzl_buildifier = {
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.tsx undojoin | Neoformat
-  autocmd BufWritePre *.ts undojoin | Neoformat
+  autocmd BufWritePre *.ts try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
+  autocmd BufWritePre *.tsx try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
+  autocmd BufWritePre *.py try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 
   """ bzl fmt on BUILD, BUILD.in, and *.bzl files.
   " undojoin isn't necessary because of the custom neoformat config
-  autocmd BufWritePre BUILD.in Neoformat
-  autocmd BufWritePre BUILD Neoformat
-  autocmd BufWritePre *.bzl Neoformat
+  "autocmd BufWritePre BUILD.in Neoformat
+  "autocmd BufWritePre BUILD Neoformat
+  "autocmd BufWritePre *.bzl Neoformat
 augroup END
 
 autocmd BufWritePost *.tsx | SyntasticCheck
