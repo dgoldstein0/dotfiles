@@ -61,6 +61,7 @@ nnoremap ,<space> :nohlsearch<CR>
 " instead of all buffers
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
 
 """ Filetype specific settings follow.
 " Makefile settings
