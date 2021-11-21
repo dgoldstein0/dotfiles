@@ -94,21 +94,21 @@ let g:vim_json_syntax_conceal = 0
 " ignore filetypes for nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
-""" Syntastic settings
-" some of the suggested defaults for syntastic.  Don't clobber the statusline.
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
+""" ALE settings
+" Turn spelling errors into red bg with white text instead of red background.
+" Affects more than just ALE but important for sane ALE display (e.g. for
+" typescript import errors), probably helps other situations too
+hi SpellBad cterm=None ctermfg=white ctermbg=red
 
-" disable pylint, since it seems to not follow the configured python paths.
-" arc works... but is really slow.
-let g:syntastic_python_checkers = ['flake8'] " todo make pyxl-python syntaxt checker work
-let g:syntastic_coffee_checkers = ['coffee', 'coffeelint'] " arc should run coffeelint... but arc lint via syntastic is disabled for now
+" auto open the quickfix window when there are errors and populate it from ALE
+let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
+" make quickfix window span bottom of screen.  qf=quickfix filetype
+autocmd FileType qf wincmd J
 
-" use tsuquyomi for syntastic typescript checking, instead of tsuquyomi's
-" default quickfix stuff.  syntastic is slightly nicer.
+" Disable tsuquyomi default quickfix stuff in favor of ALE.  dunno if this is
+" necessary but seems like it would conflict / duplicate functionality otherwise
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 
 " This checks on each change of window whether there's only one window left, and if that one is a quickfix / location list, it quits Vim.  Not exactly what I want, but it's a start.
 autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
@@ -171,5 +171,3 @@ augroup fmt
   "autocmd BufWritePre *.bzl Neoformat
 augroup END
 
-autocmd BufWritePost *.tsx | SyntasticCheck
-autocmd BufWritePost *.ts | SyntasticCheck
