@@ -135,6 +135,9 @@ git_prompt() {
 # \h is the host and \w is the current directory.
 export PS1='\[\r\]\h:\w $(source_prompt)$ '
 
+# save history after every command, so I stop losing history when I don't cleanly exit
+export PROMPT_COMMAND='history -a'
+
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
 
