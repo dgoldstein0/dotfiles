@@ -122,7 +122,7 @@ git_prompt() {
 
         # only fetch git status once for perf
         local git_status="$(git status --ignore-submodules=all 2> /dev/null)"
-        echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\")\001$(color_reset)\002"
+        echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\") $(git stash list | wc -l)\001$(color_reset)\002"
     fi
 }
 
