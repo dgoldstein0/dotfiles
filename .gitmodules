@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = git@github.com:dense-analysis/ale.git
+[submodule ".vim/bundle/python-syntax"]
+	path = .vim/bundle/python-syntax
+	url = https://github.com/vim-python/python-syntax.git

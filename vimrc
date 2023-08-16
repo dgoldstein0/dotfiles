@@ -91,6 +91,9 @@ let $BASH_ENV = "~/.vim_bash_env"
 " turn off quote concealment for vim-json
 let g:vim_json_syntax_conceal = 0
 
+" turn on all python syntax highlighting features
+let g:python_highlight_all = 1
+
 " ignore filetypes for nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
