@@ -99,8 +99,8 @@ function link() {
 
 # first and foremost: setup shell env
 if [[ $WINDOWS == 1 ]]; then
-    link ~/settings_files/windows_bash_profile $INSTALL_DIR/.bash_profile
-    link ~/settings_files/windows_bash_profile_global $INSTALL_DIR/.bash_profile_global
+    link ~/dotfiles/windows_bash_profile $INSTALL_DIR/.bash_profile
+    link ~/dotfiles/windows_bash_profile_global $INSTALL_DIR/.bash_profile_global
 
     # create empty ~/.bash_profile_local if it doesn't exist
     if [[ ! -e $INSTALL_DIR/.bash_profile_local ]]; then
@@ -109,20 +109,20 @@ if [[ $WINDOWS == 1 ]]; then
 fi
 
 # fixup .git/config so I can push with my ssh keys, if cloned over https
-perl -p -i -e "s~https://github\.com/dgoldstein0/settings_files\.git~git\@github\.com:dgoldstein0/settings_files\.git~" .git/config
+perl -p -i -e "s~https://github\.com/dgoldstein0/dotfiles\.git~git\@github\.com:dgoldstein0/dotfiles\.git~" .git/config
 
 # TODO: this is slow - otherwise I'd just do this by default.
 #git submodule sync # sync any url changes to the .git/config
 git submodule init
 git submodule update
 
-link ~/settings_files/.vim $INSTALL_DIR/.vim;
-link ~/settings_files/vimrc $INSTALL_DIR/.vimrc;
-link ~/settings_files/inputrc $INSTALL_DIR/.inputrc;
+link ~/dotfiles/.vim $INSTALL_DIR/.vim;
+link ~/dotfiles/vimrc $INSTALL_DIR/.vimrc;
+link ~/dotfiles/inputrc $INSTALL_DIR/.inputrc;
 mkdir -p $INSTALL_DIR/.ipython
-link ~/settings_files/ipython_profile $INSTALL_DIR/.ipython/profile_default
-link ~/settings_files/.gitconfig $INSTALL_DIR/.gitconfig;
-link ~/settings_files/gitconfig_global $INSTALL_DIR/.gitconfig_global;
+link ~/dotfiles/ipython_profile $INSTALL_DIR/.ipython/profile_default
+link ~/dotfiles/.gitconfig $INSTALL_DIR/.gitconfig;
+link ~/dotfiles/gitconfig_global $INSTALL_DIR/.gitconfig_global;
 
 # create empty ~/.gitconfig_local if it doesn't exist
 if [[ ! -e $INSTALL_DIR/.gitconfig_local ]]; then
@@ -144,12 +144,12 @@ fi
 which hg >& /dev/null;
 if [[ $? == 0 ]]; then
     # hg stuff.  Haven't figured out a way to make hg submodules yet.
-    if [[ ! -d ~/settings_files/hg-prompt ]]; then
-        hg clone https://bitbucket.org/sjl/hg-prompt ~/settings_files/hg-prompt;
+    if [[ ! -d ~/dotfiles/hg-prompt ]]; then
+        hg clone https://bitbucket.org/sjl/hg-prompt ~/dotfiles/hg-prompt;
     fi
 
     # link in my hgrc
-    link ~/settings_files/hgrc $INSTALL_DIR/.hgrc;
+    link ~/dotfiles/hgrc $INSTALL_DIR/.hgrc;
 
     # create empty ~/.hgrc_local if it doesn't exist
     if [[ ! -e $INSTALL_DIR/.hgrc_local ]]; then

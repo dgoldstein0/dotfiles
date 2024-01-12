@@ -1,2 +1,2 @@
-source ~/settings_files/bash_settings.sh
-source ~/settings_files/ssh_agent.sh
+source ~/dotfiles/bash_settings.sh
+source ~/dotfiles/ssh_agent.sh

@@ -2,27 +2,27 @@ This repo is for my personal settings files, which I want to sync & version cont
 
 ## Installation
 
-Run after cloning the repo to `~/settings_files`, run `./init.sh`
+Run after cloning the repo to `~/dotfiles`, run `./init.sh`
 
 TODO: this stuff could be much cleaner.  The goal should be
 - one simple command to install everything
 - everything is a symlink to the repo, so updating = git pull
 - windows v. ubuntu issues are handled by code and not needed to be explicitly documented.
 
-- bash: you'll have to add `source ~/settings_files/bash_settings.sh` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
+- bash: you'll have to add `source ~/dotfiles/bash_settings.sh` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
 - you might want to `source ~/.bash_aliases` in your .bashrc.  The vimrc here will use `~/.bash_aliases` for local aliases
 
 ## Windows-specific issues
 
 I usually use git-for-windows which comes with a bash shell, and a bunch of basic utilities.  It however is missing some basic utils, which I've added in .win-bin/.
 
-- ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/settings_files/ssh_agent.sh` to your .bash_profile.  If there's no ~/.bash_profile this is set up automatically.
+- ssh_agent.sh: needed on Windows because by default, there's no ssh-agent running.  Add `source ~/dotfiles/ssh_agent.sh` to your .bash_profile.  If there's no ~/.bash_profile this is set up automatically.
 - ssh access to my github repos is needed.  Which is a bit of a circular dep.  After cloning the repo and setting up ssh_agent.sh as described above, set up .ssh/id_rsa and then run `ssh-add`.
 - http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html may come in handy
 
 ## Windows Subsystem for Linux issues
 
-Tried this with Ubuntu 16.04; seems to have the same ssh-agent issue as standard windows so `source ~/settings_files/ssh_agent.ssh` in .bashrc was also needed.
+Tried this with Ubuntu 16.04; seems to have the same ssh-agent issue as standard windows so `source ~/dotfiles/ssh_agent.ssh` in .bashrc was also needed.
 
 ## Vim plugins
 

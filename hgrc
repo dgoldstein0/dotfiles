@@ -2,4 +2,4 @@
 
 [extensions]
 rebase =
-hg-prompt = ~/settings_files/hg-prompt/prompt.py
+hg-prompt = ~/dotfiles/hg-prompt/prompt.py
