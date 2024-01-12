@@ -149,6 +149,7 @@ endfunction
 command! DiffusionLink call DiffusionLink()
 
 """ prettier typescript on save, black python
+let g:ale_javascript_prettier_use_local_config = 1
 let g:neoformat_enabled_python = ["black"]
 let g:neoformat_enabled_bzl = ['buildifier']
 
