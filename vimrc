@@ -150,6 +150,7 @@ command! DiffusionLink call DiffusionLink()
 
 """ prettier typescript on save, black python
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_linters = {'json': ['jq']} " don't eslint json, it doesn't seem to understand it's not javascript
 let g:neoformat_enabled_python = ["black"]
 let g:neoformat_enabled_bzl = ['buildifier']
 
