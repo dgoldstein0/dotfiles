@@ -2,7 +2,7 @@ This repo is for my personal settings files, which I want to sync & version cont
 
 ## Installation
 
-Run after cloning the repo to `~/dotfiles`, run `./init.sh`
+Run after cloning the repo to `~/dotfiles`, run `./install.sh`
 
 TODO: this stuff could be much cleaner.  The goal should be
 - one simple command to install everything
