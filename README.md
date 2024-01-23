@@ -11,6 +11,7 @@ TODO: this stuff could be much cleaner.  The goal should be
 
 - bash: you'll have to add `source ~/dotfiles/bash_settings.sh` to your `~/.bashrc` (Ubuntu) or `~/.bash_profile` (Mac / Windows mingw32)
 - you might want to `source ~/.bash_aliases` in your .bashrc.  The vimrc here will use `~/.bash_aliases` for local aliases
+- if you have a broken symlinks from a previous install, `find . -maxdepth 1 -xtype l` can help locate broken symlinks which you can then delete.
 
 ## Windows-specific issues
 

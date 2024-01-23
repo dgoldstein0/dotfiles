@@ -97,10 +97,13 @@ function link() {
     fi
 }
 
+# query location of the repo, so we can create links to these absolute paths
+REPO_LOCATION=$(git rev-parse --show-toplevel)
+
 # first and foremost: setup shell env
 if [[ $WINDOWS == 1 ]]; then
-    link ~/dotfiles/windows_bash_profile $INSTALL_DIR/.bash_profile
-    link ~/dotfiles/windows_bash_profile_global $INSTALL_DIR/.bash_profile_global
+    link $REPO_LOCATION/windows_bash_profile $INSTALL_DIR/.bash_profile
+    link $REPO_LOCATION/windows_bash_profile_global $INSTALL_DIR/.bash_profile_global
 
     # create empty ~/.bash_profile_local if it doesn't exist
     if [[ ! -e $INSTALL_DIR/.bash_profile_local ]]; then
@@ -116,13 +119,13 @@ perl -p -i -e "s~https://github\.com/dgoldstein0/dotfiles\.git~git\@github\.com:
 git submodule init
 git submodule update
 
-link ~/dotfiles/.vim $INSTALL_DIR/.vim;
-link ~/dotfiles/vimrc $INSTALL_DIR/.vimrc;
-link ~/dotfiles/inputrc $INSTALL_DIR/.inputrc;
+link $REPO_LOCATION/.vim $INSTALL_DIR/.vim;
+link $REPO_LOCATION/vimrc $INSTALL_DIR/.vimrc;
+link $REPO_LOCATION/inputrc $INSTALL_DIR/.inputrc;
 mkdir -p $INSTALL_DIR/.ipython
-link ~/dotfiles/ipython_profile $INSTALL_DIR/.ipython/profile_default
-link ~/dotfiles/.gitconfig $INSTALL_DIR/.gitconfig;
-link ~/dotfiles/gitconfig_global $INSTALL_DIR/.gitconfig_global;
+link $REPO_LOCATION/ipython_profile $INSTALL_DIR/.ipython/profile_default
+link $REPO_LOCATION/.gitconfig $INSTALL_DIR/.gitconfig;
+link $REPO_LOCATION/gitconfig_global $INSTALL_DIR/.gitconfig_global;
 
 # create empty ~/.gitconfig_local if it doesn't exist
 if [[ ! -e $INSTALL_DIR/.gitconfig_local ]]; then
@@ -144,12 +147,12 @@ fi
 which hg >& /dev/null;
 if [[ $? == 0 ]]; then
     # hg stuff.  Haven't figured out a way to make hg submodules yet.
-    if [[ ! -d ~/dotfiles/hg-prompt ]]; then
-        hg clone https://bitbucket.org/sjl/hg-prompt ~/dotfiles/hg-prompt;
+    if [[ ! -d $REPO_LOCATION/hg-prompt ]]; then
+        hg clone https://bitbucket.org/sjl/hg-prompt $REPO_LOCATION/hg-prompt;
     fi
 
     # link in my hgrc
-    link ~/dotfiles/hgrc $INSTALL_DIR/.hgrc;
+    link $REPO_LOCATION/hgrc $INSTALL_DIR/.hgrc;
 
     # create empty ~/.hgrc_local if it doesn't exist
     if [[ ! -e $INSTALL_DIR/.hgrc_local ]]; then
