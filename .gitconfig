@@ -1,7 +1,3 @@
 [include]
     path = .gitconfig_global
     path = .gitconfig_local
-[status]
-	submoduleSummary = true
-[diff]
-	submodule = log
