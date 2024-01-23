@@ -1,7 +1,9 @@
 #! /bin/bash
 
 # NOTE: this script should be idempotent, so it can be used to update
-# settings to the latest and not just to init a new machine.
+# settings to the latest and not just to init a new machine.  It also should
+# not ask for user input as that gets in the way of any system that runs this
+# from a script.
 
 # param parsing: based on http://stackoverflow.com/questions/7069682/how-to-get-arguments-with-flags-in-bash-script
 
@@ -14,7 +16,7 @@ while test $# -gt 0; do
             cat << EOF
 Script to install / update dotfiles on the current machine.  When run in link mode (default), it only needs to be run to pick up new files / configuration changes; in copy mode, it should be run on every pull.
 
-usage: ./init.sh [options]
+usage: ./install.sh [options]
 
 options:
 --copy: copy the dotfiles to the target directory instead of symlinking them.
@@ -130,18 +132,6 @@ link $REPO_LOCATION/gitconfig_global $INSTALL_DIR/.gitconfig_global;
 # create empty ~/.gitconfig_local if it doesn't exist
 if [[ ! -e $INSTALL_DIR/.gitconfig_local ]]; then
     touch $INSTALL_DIR/.gitconfig_local;
-fi
-
-if [[ $(git config -f $INSTALL_DIR/.gitconfig_local --get user.email) = "" ]]; then
-    echo "What do you want as the default git email for this machine?"
-    read EMAIL;
-    if [ $? -ne 0 ]; then
-        echo "bailing out, user ctrl+c'ed.";
-        exit 1;
-    else
-        echo "setting email $EMAIL";
-        git config -f $INSTALL_DIR/.gitconfig_local user.email "$EMAIL";
-    fi
 fi
 
 which hg >& /dev/null;
