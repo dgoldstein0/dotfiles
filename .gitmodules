@@ -18,7 +18,7 @@
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
@@ -30,10 +30,10 @@
 	url = https://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
-	url = git://github.com/PeterRincker/vim-argumentative.git
+	url = https://github.com/PeterRincker/vim-argumentative.git
 [submodule ".vim/bundle/vim-jdaddy"]
 	path = .vim/bundle/vim-jdaddy
-	url = git://github.com/tpope/vim-jdaddy.git
+	url = https://github.com/tpope/vim-jdaddy.git
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
@@ -57,7 +57,7 @@
 	url = https://github.com/Quramy/tsuquyomi.git
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
-	url = git://github.com/rodjek/vim-puppet.git
+	url = https://github.com/rodjek/vim-puppet.git
 [submodule ".vim/bundle/neoformat"]
 	path = .vim/bundle/neoformat
 	url = https://github.com/sbdchd/neoformat
