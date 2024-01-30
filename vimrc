@@ -85,7 +85,7 @@ autocmd BufWinLeave * call clearmatches()
 au BufReadPost * normal g'"
 
 " use bash aliases when running shell commands from vim
-let $BASH_ENV = "~/.vim_bash_env"
+let $BASH_ENV = "~/.bash_alias.sh"
 
 """ plugin settings
 " turn off quote concealment for vim-json
