@@ -1,6 +1,16 @@
 # ignoring case for tab completion of filenames
 set completion-ignore-case on
 
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
 # These commands are useful for Putty -> bash character handling
 # when Putty is set to standard home/end, ESC[n~ for function keys,
 # and Ctrl-? (127) for backspace.  Otherwise YMMV
