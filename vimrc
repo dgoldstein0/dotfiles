@@ -103,6 +103,11 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " typescript import errors), probably helps other situations too
 hi SpellBad cterm=None ctermfg=white ctermbg=red
 
+" vimdiff better colors: make added text black on green instead of the default
+" low contrast black on blue.  This might be a consequence of my terminal
+" settings that the default is hard to read.
+hi DiffAdd      ctermfg=NONE          ctermbg=Green
+
 " auto open the quickfix window when there are errors and populate it from ALE
 let g:ale_open_list = 1
 let g:ale_set_quickfix = 1
