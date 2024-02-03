@@ -34,6 +34,8 @@
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     bdiff = diff origin/master...HEAD
     stash-unstaged = stash -k -u # stashes unstaged and untracked files
+    # update maaster and merge into current branch
+    mergemaster = "!git pullmaster && git merge origin/master --no-ff"
     # update master & rebase current branch onto it
     remaster = "\
 !doremaster() {\
@@ -50,9 +52,11 @@
     else\n\
         echo \"fetching master\";\n\
         git fetch origin master;\n\
+        local RET=$?;\
         (git merge-base --is-ancestor master origin/master && \n\
         echo \"updating master\" && git branch -f master origin/master)|| \n\
         echo \"not updating master because it is not an ancestor of origin/master\";\n\
+        return $RET;\
     fi\n\
 }; dopullmaster'"
     # Unstage all files that have been added to the staging area
