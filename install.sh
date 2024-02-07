@@ -122,6 +122,7 @@ git submodule init
 git submodule update
 
 link $REPO_LOCATION/.vim $INSTALL_DIR/.vim;
+mkdir -p $INSTALL_DIR/.vim/undo-dir;
 link $REPO_LOCATION/vimrc $INSTALL_DIR/.vimrc;
 link $REPO_LOCATION/inputrc $INSTALL_DIR/.inputrc;
 mkdir -p $INSTALL_DIR/.ipython
