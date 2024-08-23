@@ -53,7 +53,7 @@ fun! AnsiEsc#AnsiEsc(rebuild)
    syn clear
    hi  clear
    syn reset
-   exe "set ft=".s:AnsiEsc_ft_{bn}
+   exe "setlocal ft=".s:AnsiEsc_ft_{bn}
    if exists("colorname")|exe "colors ".colorname|endif
    let s:AnsiEsc_enabled_{bn}= 0
    if has("gui_running") && has("menu") && &go =~ 'm'
