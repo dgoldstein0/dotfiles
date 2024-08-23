@@ -62,6 +62,7 @@ nnoremap ,<space> :nohlsearch<CR>
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
+autocmd BufRead,BufNewFile create-pr setlocal filetype=gitcommit textwidth=0
 
 """ Filetype specific settings follow.
 " Makefile settings
