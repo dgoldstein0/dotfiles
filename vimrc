@@ -62,7 +62,7 @@ nnoremap ,<space> :nohlsearch<CR>
 autocmd BufRead,BufNewFile *.pyst setlocal filetype=python
 autocmd BufRead,BufNewFile .gitconfig* setlocal filetype=gitconfig
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
-autocmd BufRead,BufNewFile create-pr setlocal filetype=gitcommit textwidth=0
+autocmd BufRead,BufNewFile create-pr setlocal filetype=gitcommit
 
 """ Filetype specific settings follow.
 " Makefile settings
@@ -70,7 +70,10 @@ autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
 " Coffeescript, scss, javascript, scala, yaml, and typescript settings
 " and puppet (conf = .pp files)
-autocmd FileType conf,coffee,scss,javascript,typescript,scala,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType conf,coffee,scss,javascript,typescript,scala,yaml,proto setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+" disable auto line wrapping for gitcommit
+autocmd FileType gitcommit setlocal textwidth=0
 
 """ END filetype specific settings
 
