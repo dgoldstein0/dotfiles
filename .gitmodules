@@ -76,3 +76,9 @@
 [submodule ".vim/bundle/python-syntax"]
 	path = .vim/bundle/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
+[submodule ".vim/bundle/github/start/copilot.vim"]
+	path = .vim/bundle/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
+[submodule ".vim/bundle/copilot.vim"]
+	path = .vim/bundle/copilot.vim
+	url = https://github.com/github/copilot.vim.git
