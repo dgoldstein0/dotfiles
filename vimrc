@@ -189,3 +189,16 @@ augroup fmt
   "autocmd BufWritePre *.bzl Neoformat
 augroup END
 
+" function to help debug syntax highlighting
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Better sanity for tools that try to watch file changes: make vim copy the
+" file for the backup and then overwrite it; as opposed to renaming the file
+" and writing a new file for modifications, which confuses file-watching
+" tools.
+set backupcopy=yes
