@@ -35,6 +35,12 @@ Adding a new plugin like this:
 
 ## requirements
 
-I've actually started using vim 8.1 now, though most will work on 7.4+.  Gundo needs python support (but compiling with python & python3 is problematic for unknown reasons) so I'm using http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/ which compiles with py3 support.
+I just switched to vim 9.0; got it onto Ubuntu 22.04 via
+
+```
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+```
 
 To get vim-go working, you'll need to set GOPATH in .bashrc (or equivalent); go will search the gopath for modules, but it'll install into the first path, so it makes sense to set it up as `GOPATH=<path to put new things>;<path to existing modules / repo source code>`; and put /usr/local/go/bin on PATH and run through https://golang.org/doc/install#install to get a copy of the latest go toolchain.  After getting that installed and making sure `which go` points to the right go compiler, launch vim and :GoInstallBinaries to complete setup; as long as you have a new-enough go it should install everything correctly.
