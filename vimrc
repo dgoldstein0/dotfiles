@@ -161,10 +161,10 @@ function! DiffusionLink()
 endfunction
 command! DiffusionLink call DiffusionLink()
 
-""" prettier typescript on save, black python
+""" prettier typescript on save, ruff python
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_linters = {'json': ['jq']} " don't eslint json, it doesn't seem to understand it's not javascript
-let g:neoformat_enabled_python = ["black"]
+let g:neoformat_enabled_python = ["ruff"]
 let g:neoformat_enabled_bzl = ['buildifier']
 
 " buildifier configuration is necessary because when it gets it's input from
