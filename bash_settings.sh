@@ -138,6 +138,10 @@ export PS1='\[\r\]\h:\w $(source_prompt)$ '
 # save history after every command, so I stop losing history when I don't cleanly exit
 export PROMPT_COMMAND='history -a'
 
+# save all commands to bash history, including duplicates & those with leading spaces
+export HISTCONTROL=
+
+
 # modify mysql prompt to have database name
 export MYSQL_PS1="[\d]> "
 
