@@ -167,3 +167,14 @@ if [[ $WINDOWS == 0 ]]; then
     popd
 fi
 
+# TODO: make this idempotent by grepping first
+if [[ $WINDOWS == 0 ]]; then
+    if [[ ! $(grep -l bash_settings.sh $INSTALL_DIR/.bashrc) ]]; then
+        echo "source $REPO_LOCATION/bash_settings.sh" >> $INSTALL_DIR/.bashrc;
+    fi
+else
+    # TODO make mac also use .bash_profile
+    if [[ ! $(grep -l bash_settings.sh $INSTALL_DIR/.bash_profile) ]]; then
+        echo "source $REPO_LOCATION/bash_settings.sh" >> $INSTALL_DIR/.bash_profile
+    fi
+fi
