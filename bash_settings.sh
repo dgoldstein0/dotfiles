@@ -78,10 +78,12 @@ COLOR_RESET="\033[0m"
 
 git_color() {
   # expected git status output as first parameter
+  # expected git branch -vv output as second parameter
   local git_status=$1
+  local git_branch_vv=$2
   if [[ (! $git_status =~ "working directory clean") && (! $git_status =~ "working tree clean")]]; then
     echo -e $COLOR_RED
-  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+  elif [[ $git_branch_vv =~ \[.*ahead.*\] ]]; then
     echo -e $COLOR_YELLOW
   elif [[ $git_status =~ "nothing to commit" ]]; then
     echo -e $COLOR_GREEN
@@ -120,9 +122,11 @@ git_prompt() {
         # source:
         # http://stackoverflow.com/questions/19092488/custom-bash-prompt-is-overwriting-itself
 
-        # only fetch git status once for perf
-        local git_status="$(git status --ignore-submodules=all 2> /dev/null)"
-        echo -e "\001$(git_color \\"$git_status\\")\002$(git_branch \\"$git_status\\") $(git stash list | wc -l)\001$(color_reset)\002"
+        # only fetch git status once for perf, skip ahead/behind info with
+        local git_status="$(git status --ignore-submodules=all --no-ahead-behind 2> /dev/null)"
+        # get ahead/behind info from git branch -vv which is faster
+        local git_branch_vv="$(git branch -vv 2> /dev/null)"
+        echo -e "\001$(git_color \\"$git_status\\" \\"$git_branch_vv\\")\002$(git_branch \\"$git_status\\") $(git stash list | wc -l)\001$(color_reset)\002"
     fi
 }
 
