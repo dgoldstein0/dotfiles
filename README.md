@@ -33,6 +33,10 @@ Adding a new plugin like this:
 
 `git submodule add <repo url> .vim/bundle/<plugin name>`
 
+### Plugin specific installation
+
+For vim-go to be useful, you have to install golang https://go.dev/doc/install as well as `:GoInstallBinaries` in vim.
+
 ## requirements
 
 I just switched to vim 9.0; got it onto Ubuntu 22.04 via
